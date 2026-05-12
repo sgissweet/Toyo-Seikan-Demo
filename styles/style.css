@@ -1,0 +1,74 @@
+@font-face {
+  font-family: 'Supermarket';
+  src: url('../assets/fonts/supermarket/supermarket.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Supermarket', sans-serif;
+}
+
+:root {
+  /* Primary */
+  --bs-primary-1: #ffffff;
+  --bs-primary-2: #4260c3;
+  --bs-primary-3: #1B42C1;
+  --bs-primary-4: #0D2EA0;
+  --bs-primary-5: #092581;
+  --bs-primary-6: #051B63;
+
+  /* Secondary */
+  --bs-secondary-1: #5CB85C;
+  --bs-secondary-2: #FF0909;
+  --bs-secondary-3: #FFC107;
+  --bs-secondary-4: #F3BE73;
+  --bs-secondary-5: #42A5F5;
+  --bs-secondary-6: #E3F2FF;
+}
+
+/* ===== Background ===== */
+.bg-primary-1 { background-color: var(--bs-primary-1); }
+.bg-primary-2 { background-color: var(--bs-primary-2); }
+.bg-primary-3 { background-color: var(--bs-primary-3); }
+.bg-primary-4 { background-color: var(--bs-primary-4); }
+.bg-primary-5 { background-color: var(--bs-primary-5); }
+.bg-primary-6 { background-color: var(--bs-primary-6); }
+
+.bg-secondary-1 { background-color: var(--bs-secondary-1); }
+.bg-secondary-2 { background-color: var(--bs-secondary-2); }
+.bg-secondary-3 { background-color: var(--bs-secondary-3); }
+.bg-secondary-4 { background-color: var(--bs-secondary-4); }
+.bg-secondary-5 { background-color: var(--bs-secondary-5); }
+.bg-secondary-6 { background-color: var(--bs-secondary-6); }
+
+/* ===== Text ===== */
+.text-primary-1 { color: var(--bs-primary-1); }
+.text-primary-2 { color: var(--bs-primary-2); }
+.text-primary-3 { color: var(--bs-primary-3); }
+.text-primary-4 { color: var(--bs-primary-4); }
+.text-primary-5 { color: var(--bs-primary-5); }
+.text-primary-6 { color: var(--bs-primary-6); }
+
+.text-secondary-1 { color: var(--bs-secondary-1); }
+.text-secondary-2 { color: var(--bs-secondary-2); }
+.text-secondary-3 { color: var(--bs-secondary-3); }
+.text-secondary-4 { color: var(--bs-secondary-4); }
+.text-secondary-5 { color: var(--bs-secondary-5); }
+.text-secondary-6 { color: var(--bs-secondary-6); }
+
+/* ===== Border ===== */
+/* .border-primary-1 { --bs-border-color: var(--bs-primary-1); }
+.border-primary-2 { --bs-border-color: var(--bs-primary-2); }
+.border-primary-3 { --bs-border-color: var(--bs-primary-3); }
+.border-primary-4 { --bs-border-color: var(--bs-primary-4); }
+.border-primary-5 { --bs-border-color: var(--bs-primary-5); }
+.border-primary-6 { --bs-border-color: var(--bs-primary-6); }
+
+.border-secondary-1 { --bs-border-color: var(--bs-secondary-1); }
+.border-secondary-2 { --bs-border-color: var(--bs-secondary-2); }
+.border-secondary-3 { --bs-border-color: var(--bs-secondary-3); }
+.border-secondary-4 { --bs-border-color: var(--bs-secondary-4); }
+.border-secondary-5 { --bs-border-color: var(--bs-secondary-5); }
+.border-secondary-6 { --bs-border-color: var(--bs-secondary-6); } */
+
