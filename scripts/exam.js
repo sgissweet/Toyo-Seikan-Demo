@@ -44,21 +44,32 @@ const questions = [
 const tabContainer = document.getElementById("exam-tabs");
 const contentContainer = document.getElementById("exam-content");
 
-let tabHTML = "";
 let contentHTML = `<h5>The exams can choose only one answer.</h5>`;
 
 // Tabs
+let tabHTML = `
+  <table class="table table-bordered text-center mb-0">
+    <tbody>
+      <tr>
+`;
+
 questions.forEach((_, index) => {
   tabHTML += `
-    <li class="nav-item flex-fill ${index !== questions.length-1 ? "border-end" : ""}">
+    <td class="p-0">
       <button class="nav-link w-100 rounded-0 ${index === 0 ? "active" : ""}"
               data-bs-toggle="pill"
-              data-bs-target="#q${index+1}">
-        ${index+1}
+              data-bs-target="#q${index + 1}">
+        ${index + 1}
       </button>
-    </li>
+    </td>
   `;
 });
+
+tabHTML += `
+      </tr>
+    </tbody>
+  </table>
+`;
 
 // Content
 questions.forEach((item, index) => {
