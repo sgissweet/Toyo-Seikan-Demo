@@ -2,38 +2,38 @@ export function getPage() {
   return document.body.dataset.page;
 }
 
-function loadComponent(selector, file, callback) {
-  fetch(file)
-    .then(res => res.text())
-    .then(data => {
-      const el = document.querySelector(selector);
-      if (!el) return;
 
-      el.innerHTML = data;
-
-      if (callback) callback(el);
-    });
-}
 
 const isHome = () => getPage() === "home";
 
-// Navbar
-loadComponent("#navbar-placeholder", "../components/navbar.html", (el) => {
-  if (isHome()) {
-    const icon = el.querySelector(".navbar-icon");
-    if (icon) icon.src = "../assets/icons/home2.png";
+document.addEventListener("DOMContentLoaded", () => {
+
+  fetch("../components/navbar.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+
+      renderUser();
+      renderNav();
+    });
+
+  if (!isHome()) {
+    fetch("../components/report.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("report").innerHTML = html;
+      });
   }
-  const header = document.querySelector(".site-header");
 
-    if (!header) return;
+  fetch("../components/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("footer").innerHTML = html;
 
+      renderFooter();
+    });
     
+
+
 });
-
-// Footer
-const footerFile = isHome()
-  ? "../components/footer.html"
-  : "../components/footer2.html";
-
-loadComponent("#footer", footerFile);
 

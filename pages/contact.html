@@ -18,13 +18,15 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/contact.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
 
 </head>
 
 <body data-page="contact">
 
     <!-- Navbar Component -->
-    <div id="navbar-placeholder"></div>
+    <div id="navbar"></div>
 
     <!-- Main Content -->
     <main class="container-fluid pt-3">
@@ -50,11 +52,7 @@
                         </div>
                         <div class="ms-3">
                             <h6 class="fw-bold mb-1 gradient-text me-3 mt-1">ที่ตั้ง</h6>
-                            <small>
-                                95 หมู่ 3 สวนอุตสาหกรรมโรจนะ 2<br>
-                                ตำบลบ้านช้าง อำเภออุทัย<br>
-                                จังหวัดพระนครศรีอยุธยา 13210
-                            </small>
+                            <small id="contact-address"></small>
                         </div>
                     </div>
 
@@ -64,7 +62,7 @@
                         </div>
                         <div class="ms-3">
                             <h6 class="fw-bold mb-1 gradient-text me-3 mt-1">อีเมล</h6>
-                            <small>info@toyoseikan.co.th</small>
+                            <small id="contact-email"></small>
                         </div>
                     </div>
 
@@ -74,7 +72,7 @@
                         </div>
                         <div class="ms-3">
                             <h6 class="fw-bold mb-1 gradient-text me-3 mt-1">โทรศัพท์</h6>
-                            <small>+66-35-746-655</small>
+                            <small id="contact-tel"></small>
                         </div>
                     </div>
 
@@ -101,10 +99,8 @@
         <!-- MAP -->
         <div class="card border-0 shadow-sm mt-4 p-3 text-center">
 
-            <div class="map-wrapper mb-3">
-                <iframe src="https://www.google.com/maps?q=14.353212,100.615341&hl=th&z=14&output=embed" width="100%"
-                    height="350" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
+            <div id="contact-map" class="map-wrapper mb-3">
+
             </div>
 
             <div class="d-flex justify-content-center">
@@ -116,11 +112,16 @@
 
     </main>
 
+    
+    <div id="report"></div>
 
     <!-- Footer Component -->
     <div id="footer"></div>
 
     <script type="module" src="../scripts/core/layout.js"></script>
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/pages/contact.js"></script>
 
 
 
