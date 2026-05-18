@@ -18,6 +18,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/footerIndex.css">
 
 
 </head>
@@ -25,7 +27,7 @@
 <body data-page="home">
 
     <!-- Navbar Component -->
-    <div id="navbar-placeholder"></div>
+    <div id="navbar"></div>
 
 
     <!-- Main Content -->
@@ -131,17 +133,34 @@
         </section>
 
     </main>
+     <!-- contact -->
+    <footer id="contact" class="contact">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="contact-title">แผนผังเว็บไซต์</h5>
+                    <ul class="contact-links" id="contactLinks"></ul>
+                </div>
+                <div class="col-md-5" id="contactInfo"></div>
+                <div class="col-md-4" id="contactMap"></div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Footer Component -->
     <div id="footer"></div>
 
-    <script type="module" src="../scripts/core/layout.js"></script>
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script type ="module" src="../scripts/core/layout.js"></script>
     <script type="module" src="../scripts/pages/index.js"></script>
     <script type="module" src="../scripts/pages/news.js"></script>
 
     <!-- Bootstrap JS & Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+     <!-- nav,foot -->
+    
 
 
 </body>
