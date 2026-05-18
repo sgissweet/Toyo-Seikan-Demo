@@ -1,0 +1,41 @@
+/* ========================================
+   contact
+   ======================================== */
+.contact {
+  background: url('../assets/images/contact.jpg') center/cover no-repeat;
+  color: black;
+  padding: 50px 0;
+  position: relative;
+  
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(143, 203, 255, 0.2); 
+}
+
+.contact .container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-title {
+    margin-bottom: 2rem;
+}
+
+.contact-links {
+  list-style: none;   
+  padding: 0;
+  margin: 0;
+}
+
+.contact-links li {
+  margin-bottom: 6px;
+}
+
+.map-container img {
+    width: 100%;
+    box-shadow: 20px 20px 23px rgba(0, 0, 0, 0.6);
+}
