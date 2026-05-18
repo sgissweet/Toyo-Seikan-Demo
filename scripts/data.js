@@ -20,21 +20,21 @@ const DATA = {
 
     // เมนูนำทาง
     navItems: [
-        { label: "หน้าแรก", href: "#", icon: "bi-house-door-fill", isHome: true },
+        { label: "หน้าแรก", href: "../pages/index.html", icon: "bi-house-door-fill", isHome: true },
         { label: "หลักสูตร", href: "#" },
-        { label: "ข่าวประชาสัมพันธ์", href: "#" },
-        { label: "คำถามที่พบบ่อย", href: "#" },
-        { label: "วิธีการใช้งาน", href: "#" },
-        { label: "ติดต่อเรา", href: "#" }
+        { label: "ข่าวประชาสัมพันธ์", href: "../pages/news.html" },
+        { label: "คำถามที่พบบ่อย", href: "../pages/faq.html" },
+        { label: "วิธีการใช้งาน", href: "../pages/how-to-use.html" },
+        { label: "ติดต่อเรา", href: "../pages/contact.html" }
     ],
 
     // ลิงก์ Footer
     contactLinks: [
-        { label: "หน้าแรก", href: "#" },
+        { label: "หน้าแรก", href: "../pages/index.html" },
         { label: "เกี่ยวกับเรา", href: "#" },
         { label: "ผลิตภัณฑ์ของเรา", href: "#" },
         { label: "รายงานกับเรา", href: "#" },
-        { label: "ติดต่อเรา", href: "#contact" }
+        { label: "ติดต่อเรา", href: "../pages/contact.html#contact" }
     ],
 
     // ข้อมูลติดต่อ
