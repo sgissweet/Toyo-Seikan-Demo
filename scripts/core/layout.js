@@ -17,6 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
       renderNav();
     });
 
+  if (!isHome()) {
+    fetch("../components/report.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("report").innerHTML = html;
+      });
+  }
+
   fetch("../components/footer.html")
     .then(res => res.text())
     .then(html => {
