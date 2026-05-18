@@ -162,10 +162,11 @@ body {
 }
 
 .navbar-nav .nav-link i {
-  color: var(--primary-dark);
+  color: var(--text-dark);
   padding: 1rem 1.25rem;
+  
   font-size: 22px;
-  transition: none;
+  transition: 0.2s;
   position: relative;
   top: -4px; 
 }
@@ -173,6 +174,8 @@ body {
 .navbar-nav .nav-link.active i {
   color: var(--text-dark);
 }
+
+
 
 .navbar-nav .nav-link:hover {
   color: var(--primary-dark);
@@ -183,7 +186,7 @@ body {
 }
 
 .navbar-nav .nav-link.active {
-    color: var(--primary-dark);
+    color: var(--text-dark);
     border-bottom: 3px solid var(--primary-dark);
 }
 
