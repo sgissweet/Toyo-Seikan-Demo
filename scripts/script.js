@@ -76,7 +76,7 @@ function renderContact() {
 // INITIALIZE
 // ========================================
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     // Render all sections
     renderSite();
     renderUser();
