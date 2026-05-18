@@ -1,0 +1,55 @@
+
+/* COURSE */
+
+
+.course-card {
+    
+    border: none;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0px 8.6px 25.79px 0px #0000001A;
+
+}
+
+.course-footer {
+    border-top: 2px solid #000;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.card-body .type-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle; }
+
+.course-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+.carousel-control-prev,
+.carousel-control-next {
+    width: 60px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(30, 165, 255, 0.845);
+    width: 60px !important;
+    height: 60px !important;
+    background-size: 50% !important;
+    border-radius: 50%;
+}
+
+/* my course */
+.progress-course {
+    height: 6px;
+    border-radius: 4px;
+    background-color: #E0E0E0;
+    overflow: hidden;
+}
+
