@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
-  <!-- Red curved shape -->
-  <path d="M5 20 Q15 5, 35 10 Q55 15, 55 25 Q55 35, 35 35 Q15 35, 5 20 Z" fill="#c41e3a" />
-  <!-- Text -->
-  <text x="60" y="18" font-family="Arial, sans-serif" font-size="8" fill="#666">TOYO SEIKAN</text>
-  <text x="60" y="30" font-family="Arial, sans-serif" font-size="6" fill="#999">GROUP</text>
-</svg>
