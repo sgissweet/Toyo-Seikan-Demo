@@ -53,6 +53,27 @@ function setHTML(id, html) {
     const el = document.getElementById(id);
     if (el) el.innerHTML = html;
 }
+function renderContact() {
+    setHTML('contactLinks', DATA.contactLinks.map(link =>
+        `<li><span>${link.label}</span></li>`
+    ).join(''));
+
+    setHTML('contactInfo', `
+        <h5 class="contact-title">${DATA.contact.title}</h5>
+        <p class="mb-2"><strong>${DATA.contact.office}</strong></p>
+        <p class="mb-1">${DATA.contact.address.join('<br>')}</p>
+        <p class="mt-3 mb-1"><strong>Tel:</strong> ${DATA.contact.tel}</p>
+        <p><strong>Email:</strong> ${DATA.contact.email}</p>
+    `);
+
+    setHTML('contactMap', `
+        <div class="map-responsive">
+                        <iframe
+                            src="${DATA.contact.mapsrc}"
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+    `);
+}
 
 // ========================================
 // INITIALIZE
@@ -64,4 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
     renderUser();
     renderNav();
     renderFooter();
+    renderContact();
 });
+
