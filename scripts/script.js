@@ -22,6 +22,7 @@ function renderUser() {
             </div>
         </a>
     `);
+
 }
 
 function renderNav() {
