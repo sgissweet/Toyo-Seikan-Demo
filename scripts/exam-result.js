@@ -71,7 +71,7 @@ resultData.summary.forEach(item => {
 
   summaryTable.innerHTML += `
     <tr>
-      <td class="ps-4">${item.label}</td>
+      <td class="ps-4 text-start">${item.label}</td>
       <td class="text-end pe-4">${item.value}</td>
     </tr>
   `;
@@ -95,7 +95,7 @@ resultData.questions.forEach(item => {
 
   questionTable.innerHTML += `
     <tr>
-      <td>
+      <td class="text-start">
         <span class="question-dot ${dotClass} me-2"></span>
         ${item.question}
       </td>
