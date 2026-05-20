@@ -1,0 +1,28 @@
+/* ===== How to Use Page Styles ===== */
+
+.tutorial-card {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.tutorial-card img {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.img-wrapper {
+  height: 120px;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
