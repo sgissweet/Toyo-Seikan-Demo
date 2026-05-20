@@ -10,6 +10,7 @@ function renderSite() {
     setText('copyrightRight', DATA.site.copyright);
 }
 
+
 function renderUser() {
     setHTML('userProfile', `
         <a href="../pages/profile.html" class="text-decoration-none">
@@ -22,7 +23,6 @@ function renderUser() {
             </div>
         </a>
     `);
-
 }
 
 function renderNav() {
