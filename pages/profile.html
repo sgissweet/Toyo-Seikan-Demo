@@ -185,12 +185,7 @@
     </section>
 
     <!-- Report -->
-    <div class="container text-end mb-3">
-        <button class="report-btn">
-            <i class="bi bi-exclamation-triangle-fill"></i>
-            Report problem
-        </button>
-    </div>
+    <div id="report"></div>
     
     <!-- Footer -->
     <div id="footer"></div>
@@ -200,6 +195,8 @@
     <!-- Custom JS -->
     <script src="../scripts/data.js"></script>
     <script src="../scripts/script.js"></script>
+    <!-- nav,foot -->
+    <script type ="module" src="../scripts/core/layout.js"></script>
 
     <!-- edit -->
     <script>
@@ -268,30 +265,6 @@
 
             editBtn.textContent = isEditing ? "Save" : "Edit";
         });
-
-    });
-    </script>
-
-    <!-- nav,foot -->
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-
-        fetch("../components/navbar.html")
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById("navbar").innerHTML = html;
-
-                renderUser();
-                renderNav();
-            });
-
-        fetch("../components/footer.html")
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById("footer").innerHTML = html;
-
-                renderFooter();  
-            });
 
     });
     </script>
