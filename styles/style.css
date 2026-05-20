@@ -171,7 +171,7 @@ body {
   color: var(--text-dark);
   
   font-size: 22px;
-  transition: 0.2s;
+  transition: none;
   position: relative;
   top: -4px; 
 }
@@ -193,7 +193,7 @@ body {
 }
 
 .navbar-nav .nav-link.active {
-    color: var(--text-dark);
+    color: var(--primary-dark);
     border-bottom: 3px solid var(--primary-dark);
 }
 
