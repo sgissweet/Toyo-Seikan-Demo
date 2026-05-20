@@ -10,15 +10,18 @@ function renderSite() {
     setText('copyrightRight', DATA.site.copyright);
 }
 
+
 function renderUser() {
     setHTML('userProfile', `
-        <div class="user-box d-flex align-items-center gap-2">
-            <img src="../assets/images/profile.jpg" class="avatar">
-            <div>
-                <div class="user-role">${DATA.user.position}</div>
-                <div class="user-name">${DATA.user.name}</div>
+        <a href="../pages/profile.html" class="text-decoration-none">
+            <div class="user-box d-flex align-items-center gap-2">
+                <img src="../assets/images/profile.jpg" class="avatar">
+                <div>
+                    <div class="user-role">${DATA.user.position}</div>
+                    <div class="user-name">${DATA.user.name}</div>
+                </div>
             </div>
-        </div>
+        </a>
     `);
 }
 
