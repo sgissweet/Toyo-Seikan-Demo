@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<style>
+    .profile-card {
+        max-width: 800px;
+        margin-bottom: 5px;
+        border: 3px solid #0d4d8b;
+        border-radius: 16px;
+        background: #fff;
+    }
+
+    .profile-card i {
+        color: #0d4d8b;
+    }
+
+    .admin-title {
+        font-size: 1.25rem;
+        color: #0d4d8b;
+        margin-top: 1px;
+        margin-bottom: 5px;
+    }
+
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .edit-btn {
+        width: 100px;
+        border-radius: 10px;
+        font-size: 1rem;
+        color: #000;
+    }
+
+    .form-wrapper {
+        font-weight: 500;
+        margin-bottom: 1px;
+        color: #00529C;
+    }
+
+    .form-box {
+        border-radius: 8px;
+    }
+</style>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+
+    <!-- Section -->
+    <section class="section">
+        <div class="container">
+
+            <h3 class="section-title-sm text-start">Profile</h3>
+
+            <div class="profile-card mx-auto mt-4 p-4">
+
+                <!-- Top -->
+                <div class="text-center mb-4">
+                    <i class="bi bi-person-gear fs-2"></i>
+
+                    <div class="fw-semibold admin-title">
+                        Admin
+                    </div>
+
+                    <img src="/assets/images/profile.jpg" class="profile-avatar my-3">
+                        <div>
+                            <button id="editBtn" class="btn btn-outline-primary btn-sm edit-btn">
+                                Edit
+                            </button>
+                        </div>
+                </div>
+
+                <!-- Form -->
+                <div class="row g-4 form-wrapper">
+
+                    <!-- LEFT -->
+                    <div class="col-md-6 ">
+                    <!-- Organization -->
+                    <label class="mt-3">Organization</label>
+                        <div class="position-relative">
+                            <input id="orgInput"
+                                type="text"
+                                class="form-control"
+                                value="Toyo Seikan"
+                                disabled
+                                autocomplete="off">
+
+                            <div id="orgDropdown" class="dropdown-menu w-100">
+                                <button class="dropdown-item">Toyo Seikan</button>
+                                <button class="dropdown-item">Toyo Seikan Packaging</button>
+                                <button class="dropdown-item">Toyo Seikan Logistics</button>
+                            </div>
+                        </div>
+
+                        <!-- Department -->
+                        <label class="mt-3">Department</label>
+                            <div class="position-relative">
+                                <input id="depInput"
+                                    type="text"
+                                    class="form-control"
+                                    value="Admin"
+                                    disabled
+                                    autocomplete="off">
+
+                                <!-- dropdown -->
+                                <div id="depDropdown" class="dropdown-menu w-100">
+                                    <button class="dropdown-item">Admin</button>
+                                    <button class="dropdown-item">HR</button>
+                                    <button class="dropdown-item">IT</button>
+                                    <button class="dropdown-item">Production</button>
+                                </div>
+                            </div>
+
+                        <label class="mt-3">Email</label>
+                        <input type="text" class="form-control" value="ascnetwork@brother.co.th" disabled>
+
+                        <label class="mt-3">Full name</label>
+                        <input type="text" class="form-control" value="Administrator" disabled>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="col-md-6">
+                        <!-- Company -->
+                        <label class="mt-3">Company</label>
+                            <div class="position-relative">
+                                <input id="comInput"
+                                    type="text"
+                                    class="form-control"
+                                    value="Toyo Seikan"
+                                    disabled
+                                    autocomplete="off">
+
+                                <!-- dropdown -->
+                                <div id="comDropdown" class="dropdown-menu w-100">
+                                    <button class="dropdown-item">Toyo Seikan Thailand</button>
+                                    <button class="dropdown-item">Toyo Seikan Japan</button>
+                                </div>
+                            </div>
+
+                        <!-- Position -->
+                        <label class="mt-3">Position</label>
+                            <div class="position-relative">
+                                <input id="posInput"
+                                    type="text"
+                                    class="form-control"
+                                    value="Admin"
+                                    disabled
+                                    autocomplete="off">
+
+                                <!-- dropdown -->
+                                <div id="posDropdown" class="dropdown-menu w-100">
+                                    <button class="dropdown-item">Admin</button>
+                                    <button class="dropdown-item">Manager</button>
+                                    <button class="dropdown-item">Staff</button>
+                                </div>
+                            </div>
+
+                        <label class="mt-3">Password</label>
+                        <input type="password" class="form-control" value="admin">
+
+                        <label class="mt-3">Employee ID</label>
+                        <input type="text" class="form-control" value="1010101010">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report -->
+    <div id="report"></div>
+    
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/script.js"></script>
+    <!-- nav,foot -->
+    <script type ="module" src="../scripts/core/layout.js"></script>
+
+    <!-- edit -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // =========================
+        // DROPDOWN FUNCTION
+        // =========================
+        function setupDropdown(inputId, dropdownId) {
+            const input = document.getElementById(inputId);
+            const dropdown = document.getElementById(dropdownId);
+            const items = dropdown.querySelectorAll(".dropdown-item");
+
+            input.addEventListener("focus", () => {
+                if (!input.disabled) dropdown.classList.add("show");
+            });
+
+            input.addEventListener("input", () => {
+                const value = input.value.toLowerCase();
+
+                items.forEach(item => {
+                    item.style.display =
+                        item.textContent.toLowerCase().includes(value)
+                        ? "block" : "none";
+                });
+            });
+
+            items.forEach(item => {
+                item.onclick = () => {
+                    input.value = item.textContent;
+                    dropdown.classList.remove("show");
+                };
+            });
+
+            document.addEventListener("click", (e) => {
+                if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.remove("show");
+                }
+            });
+        }
+
+        setupDropdown("orgInput","orgDropdown");
+        setupDropdown("depInput","depDropdown");
+        setupDropdown("comInput","comDropdown");
+        setupDropdown("posInput","posDropdown");
+
+        // =========================
+        // EDIT BUTTON
+        // =========================
+        const editBtn = document.getElementById("editBtn");
+        const cards = document.querySelectorAll(".form-card"); 
+        const inputs = document.querySelectorAll(".profile-card input");
+
+        let isEditing = false;
+
+        editBtn.addEventListener("click", () => {
+
+            isEditing = !isEditing;
+
+            inputs.forEach(i => i.disabled = !isEditing);
+
+            cards.forEach(card => {
+                card.classList.toggle("view-mode", !isEditing);
+                card.classList.toggle("edit-mode", isEditing);
+            });
+
+            editBtn.textContent = isEditing ? "Save" : "Edit";
+        });
+
+    });
+    </script>
+
+</body>
+</html>
