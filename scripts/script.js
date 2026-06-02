@@ -41,9 +41,12 @@ function renderFooter() {
 }
 
 function renderContact() {
-    setHTML('contactLinks', DATA.contactLinks.map(link => 
-        `<li><span>${link.label}</span></li>`
-    ).join(''));
+    setHTML(
+        'contactLinks',
+        DATA.contactLinks.map(link => `
+            <li><span>${link.label}</span></li>
+        `).join('')
+    );
 
     setHTML('contactInfo', `
         <h5 class="contact-title">${DATA.contact.title}</h5>
@@ -54,8 +57,11 @@ function renderContact() {
     `);
 
     setHTML('contactMap', `
-        <div class="map-container">
-            <img src="${DATA.contact.mapImage}" alt="Map">
+        <div class="map-responsive">
+            <iframe
+                src="${DATA.contact.mapsrc}"
+                width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
         </div>
     `);
 }
