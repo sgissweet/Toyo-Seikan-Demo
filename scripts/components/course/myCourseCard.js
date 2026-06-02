@@ -106,15 +106,20 @@ export function myCourseCard(course) {
 
             </div>
             
-            <!-- Duration -->
-            <small class="text-muted d-flex align-items-center gap-1">
-                <img 
-                src="../assets/icons/time.png" 
-                class="type-icon"
-                >
-                ${formatDuration(course.duration)}
-            </small>
+            <!-- Start / End -->
+            <div class="d-flex justify-content-between text-center mt-2">
 
+                <div>
+                    <small class="text-muted d-block">Start</small>
+                    <small>${course.startDate}</small>
+                </div>
+
+                <div>
+                    <small class="text-muted d-block">End</small>
+                    <small>${course.endDate}</small>
+                </div>
+
+            </div>
             </div>
             
 
