@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>รายละเอียดข่าว</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/style.css">
+
+  <style>
+
+    body{
+      background:#f5f5f5;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    main{
+      flex:1;
+    }
+
+    /* ===== Header ===== */
+    .page-header{
+      background:white;
+      padding:40px 60px;
+    }
+
+    .breadcrumb-text{
+      font-size:14px;
+      color:#666;
+    }
+
+    .underline{
+      width:60px;
+      height:3px;
+      background:#07467C;
+      border-radius:10px;
+    }
+
+    /* ===== Content ===== */
+    .news-content{
+      background:white;
+      padding:40px;
+      border-radius:10px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .news-content img{
+      width:100%;
+      border-radius:10px;
+      object-fit:cover;
+    }
+
+    .news-content p{
+      line-height:1.8;
+      color:#444;
+    }
+
+    /* ===== Back Button ===== */
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:10px 22px;
+      border:1px solid #dcdcdc;
+      border-radius:50px;
+      text-decoration:none;
+      color:#333;
+      background:white;
+      transition:0.3s;
+    }
+
+    .back-btn:hover{
+      background:#f3f3f3;
+      color:#07467C;
+    }
+
+    /* ===== Responsive ===== */
+    @media(max-width:768px){
+
+      .page-header{
+        padding:25px 20px;
+      }
+
+      .news-content{
+        padding:25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ===== Page Header ===== -->
+<div class="page-header mb-4">
+
+  <div class="d-flex justify-content-between align-items-center">
+
+    <!-- Left -->
+    <h5 class="mb-0">ข่าวประชาสัมพันธ์</h5>
+
+    <!-- Right -->
+    <div class="breadcrumb-text">
+      Home &nbsp;›&nbsp; ข่าวประชาสัมพันธ์
+    </div>
+
+  </div>
+
+  <!-- Center -->
+  <div class="text-center mt-3">
+    <i class="bi bi-eye"></i> 300
+    <div class="underline mx-auto mt-1"></div>
+  </div>
+
+</div>
+
+<!-- ===== Content ===== -->
+<main class="container my-5">
+
+  <div class="news-content">
+
+    <h3 class="mb-3">
+      เปิดงาน Mobile World Congress 2026
+    </h3>
+
+    <p class="text-muted">
+      <i class="bi bi-calendar"></i> 10 เมษายน 2564
+    </p>
+
+    <img src="../assets/images/n1.jpg" class="img-fluid rounded mb-4">
+
+    <p>
+      งาน Mobile World Congress 2026 ได้เปิดตัวอย่างยิ่งใหญ่
+      โดยมีบริษัทเทคโนโลยีชั้นนำจากทั่วโลกเข้าร่วม
+      เพื่อนำเสนอเทคโนโลยีใหม่ ๆ ทั้งด้าน AI, 5G
+      และอุปกรณ์อัจฉริยะ
+    </p>
+
+    <p>
+      ภายในงานมีการเปิดตัวผลิตภัณฑ์ใหม่จำนวนมาก
+      รวมถึงนวัตกรรมที่ช่วยยกระดับชีวิตประจำวัน
+      และเพิ่มประสิทธิภาพในการทำงานขององค์กร
+    </p>
+
+    <!-- Back Button -->
+    <div class="mt-4">
+      <a href="news.html" class="back-btn">
+        <i class="bi bi-chevron-left"></i>
+        ย้อนกลับ
+      </a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== Report ===== -->
+<div id="report"></div>
+
+<!-- ===== Footer ===== -->
+<div id="footer"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Scripts -->
+<script src="../scripts/data.js"></script>
+<script src="../scripts/script.js"></script>
+
+<!-- Layout -->
+<script type="module" src="../scripts/core/layout.js"></script>
+
+</body>
+</html>
