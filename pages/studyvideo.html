@@ -4,130 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course - Toyo Seikan</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/style.css">
 
-            <!-- NAVBAR -->
-    <div id="navbar"></div>
-
-        <main class="container my-4">
-            <div class="mb-3">
-                <button class="btn btn-outline-secondary btn-sm px-3" onclick="history.back()"><i class="bi bi-chevron-left"></i> Back</button>
-            </div>
-            
-            <h4 class="text-center fw-bold mb-4">
-                <span class="border-bottom border-primary border-3 pb-2">Course</span>
-            </h4>
-
-            <div class="row g-4">
-                <div class="col-lg-8">
-                    <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
-                        <div class="bg-light p-3 border-bottom d-flex align-items-center">
-                            <i class="bi bi-bullseye text-primary me-2"></i> <strong class="text-dark">Introduction</strong>
-                        </div>
-                        
-                        <div class="video-container">
-                            <video id="courseVideo" controls poster="images/dekstudy.png">
-                                <source src="videos/lesson1.mp4" type="video/mp4">
-                                Browser ของคุณไม่รองรับการเล่นวิดีโอ
-                            </video>
-
-                            <div class="video-play-overlay" id="customOverlay" onclick="togglePlay()">
-                                <div class="play-circle">
-                                    <i class="bi bi-play-fill" id="playIcon"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-light p-3 border-top d-flex align-items-center">
-                            <i class="bi bi-bullseye text-primary me-2"></i> <strong class="text-secondary">Chapter 1 : Introduction</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-2" data-bs-toggle="collapse" data-bs-target="#listCollapse" style="cursor: pointer;">
-                            <span><i class="bi bi-list-ul me-2"></i> List</span>
-                            <i class="bi bi-chevron-down"></i>
-                        </div>
-                        <div class="collapse show" id="listCollapse">
-                            <div class="card-body p-0">
-                                <div class="p-3 border-bottom list-item active">
-                                    <h6 class="fw-bold small mb-1">Chapter 1: Introduction</h6>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="small text-muted">Introduction</span>
-                                        <span class="badge bg-primary rounded-pill fw-light" style="font-size: 10px;">Completed</span>
-                                    </div>
-                                </div>
-                                <div class="p-3 list-item">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h6 class="fw-bold small mb-0 text-muted">Chapter 2: Next Lesson</h6>
-                                        <span class="badge bg-secondary rounded-pill fw-light" style="font-size: 10px;">In Progress</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-2" data-bs-toggle="collapse" data-bs-target="#noteCollapse" style="cursor: pointer;">
-                            <span><i class="bi bi-pencil-square me-2"></i> Note</span>
-                            <i class="bi bi-chevron-down"></i>
-                        </div>
-                        <div class="collapse show" id="noteCollapse">
-                            <div class="card-body">
-                                <textarea class="form-control mb-2" id="userNote" rows="3" placeholder="Type a message and take notes."></textarea>
-                                <button class="btn btn-warning w-100 text-white fw-bold py-2 mb-3" onclick="saveNote()">Note</button>
-                                
-                                <div class="border rounded p-3 bg-white" id="noteDisplay" style="max-height: 150px; overflow-y: auto;">
-                                    <h6 class="text-center border-bottom pb-2 mb-2 text-muted" style="font-size: 14px;">บันทึกของคุณ</h6>
-                                    <p class="small text-muted mb-1">1. I Think..</p>
-                                    <p class="small text-muted mb-0">2. Very good..</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-   <!-- Report -->
-    <div id="report"></div>
-    
-    <!-- Footer -->
-    <div id="footer"></div>
-
-     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="../scripts/data.js"></script>
-    <script src="../scripts/script.js"></script>
-    <!-- nav,foot -->
-    <script type ="module" src="../scripts/core/layout.js"></script>
-
-    <script>
-        const video = document.getElementById('courseVideo');
-        const overlay = document.getElementById('customOverlay');
-
-        function togglePlay() {
-            if (video.paused) {
-                video.play();
-                overlay.style.opacity = '0';
-                setTimeout(() => { overlay.style.display = 'none'; }, 300);
-            }
+    <style>
+        /* จัดกล่องให้เป็นอัตราส่วน 16:9 สำหรับวิดีโอ YouTube */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+            overflow: hidden;
         }
 
-        video.addEventListener('pause', () => {
-            overlay.style.display = 'flex';
-            overlay.style.opacity = '1';
-        });
+        /* บังคับให้ iframe ของ YouTube ขยายเต็มกล่องพอดี */
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
 
+    <div id="navbar"></div>
+
+    <main class="container my-4">
+        <div class="mb-3">
+            <button class="btn btn-outline-secondary btn-sm px-3" onclick="history.back()"><i class="bi bi-chevron-left"></i> Back</button>
+        </div>
+        
+        <h4 class="text-center fw-bold mb-4">
+            <span class="border-bottom border-primary border-3 pb-2">Course</span>
+        </h4>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+                    <div class="bg-light p-3 border-bottom d-flex align-items-center">
+                        <i class="bi bi-bullseye text-primary me-2"></i> <strong class="text-dark">Introduction</strong>
+                    </div>
+                    
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="bg-light p-3 border-top d-flex align-items-center">
+                        <i class="bi bi-bullseye text-primary me-2"></i> <strong class="text-secondary">Chapter 1 : Introduction</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-2" data-bs-toggle="collapse" data-bs-target="#listCollapse" style="cursor: pointer;">
+                        <span><i class="bi bi-list-ul me-2"></i> List</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="collapse show" id="listCollapse">
+                        <div class="card-body p-0">
+                            <div class="p-3 border-bottom list-item active">
+                                <h6 class="fw-bold small mb-1">Chapter 1: Introduction</h6>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="small text-muted">Introduction</span>
+                                    <span class="badge bg-primary rounded-pill fw-light" style="font-size: 10px;">Completed</span>
+                                </div>
+                            </div>
+                            <div class="p-3 list-item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="fw-bold small mb-0 text-muted">Chapter 2: Next Lesson</h6>
+                                    <span class="badge bg-secondary rounded-pill fw-light" style="font-size: 10px;">In Progress</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-2" data-bs-toggle="collapse" data-bs-target="#noteCollapse" style="cursor: pointer;">
+                        <span><i class="bi bi-pencil-square me-2"></i> Note</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="collapse show" id="noteCollapse">
+                        <div class="card-body">
+                            <textarea class="form-control mb-2" id="userNote" rows="3" placeholder="Type a message and take notes."></textarea>
+                            <button class="btn btn-warning w-100 text-white fw-bold py-2 mb-3" onclick="saveNote()">Note</button>
+                            
+                            <div class="border rounded p-3 bg-white" id="noteDisplay" style="max-height: 150px; overflow-y: auto;">
+                                <h6 class="text-center border-bottom pb-2 mb-2 text-muted" style="font-size: 14px;">บันทึกของคุณ</h6>
+                                <p class="small text-muted mb-1">1. I Think..</p>
+                                <p class="small text-muted mb-0">2. Very good..</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="report"></div>
+    
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script type="module" src="../scripts/core/layout.js"></script>
+
+    <script>
+        // ฟังก์ชันระบบบันทึกโน้ตยังคงทำงานได้ปกติ
         function saveNote() {
             const noteText = document.getElementById('userNote').value;
             if(noteText) {
@@ -137,7 +131,7 @@
                 newNote.innerText = "- " + noteText;
                 display.appendChild(newNote);
                 document.getElementById('userNote').value = "";
-                display.scrollTop = display.scrollHeight; // เลื่อน scroll ลงล่างสุดเมื่อมีโน้ตใหม่
+                display.scrollTop = display.scrollHeight; 
             }
         }
     </script>
