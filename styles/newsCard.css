@@ -44,3 +44,10 @@
 .news-card a:hover {
     text-decoration: underline; /* ใส่ขีดเส้นใต้เมื่อ hover */
 }
+
+.read-more {
+    color: #0d6efd ;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
