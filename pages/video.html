@@ -4,101 +4,221 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>วิดีโอแนะนำ - Toyo Seikan</title>
-       <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
-    
-</head>
-<body class="d-flex flex-column min-vh-100">
-    <div class="content-wrapper flex-grow-1">
-        <header class="container-fluid top-header bg-white border-bottom py-2">
-            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <div class="logo-wrapper d-flex align-items-center flex-wrap gap-2">
-                    <img src="images/toyo.jpg" alt="Toyo Seikan Logo" class="main-logo">
-                    <img src="images/toyogroup.jpg" alt="" class="group-logo border-start ms-2 ps-2 ms-sm-3 ps-sm-3" onerror="this.style.display='none'">
-                </div>
-                <div class="user-profile d-flex align-items-center shadow-sm ms-auto ms-md-0">
-                    <i class="bi bi-person-circle fs-4 me-2"></i>
-                    <div class="text-start profile-text">
-                        <div class="user-pos fw-light">Position</div>
-                        <div class="user-name fw-bold">Username</div>
-                    </div>
-                </div>
-            </div>
-        </header>
 
-      <!-- NAVBAR -->
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .main-logo { 
+            height: 40px; 
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .group-logo { 
+            height: 30px; 
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .profile-text {
+            font-size: 12px; 
+            line-height: 1.2;
+        }
+
+        .search-nav-input {
+            border-radius: 20px;
+            padding-right: 1.5rem;
+        }
+
+        .search-nav-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #6c757d;
+        }
+
+        .search-center-box input {
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .search-center-box button {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        
+        .video-card {
+            transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.25s ease;
+            will-change: transform, box-shadow; 
+            backface-visibility: hidden;        
+        }
+
+        .video-card:hover {
+            transform: translateY(-6px); 
+            box-shadow: 0 12px 20px rgba(0,0,0,0.12) !important;
+        }
+
+        .video-thumb {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            aspect-ratio: 16/9;
+            /* ใช้สีเทาเป็น Background สแตนด์บายรอไว้เลย ถ้าภาพไม่มาก็ไม่กระพริบ */
+            background-color: #e9ecef; 
+        }
+
+        /* สร้างสไตล์สำหรับภาพตัวอย่างกรณีภาพหลักโหลดไม่ขึ้น */
+        .video-thumb-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            background-color: #eaedf0;
+            font-size: 0.85rem;
+        }
+        
+        .video-thumb-fallback i {
+            font-size: 2rem;
+            margin-bottom: 4px;
+            color: #adb5bd;
+        }
+
+        .report-balloon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #0d6efd;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        .report-balloon:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .footer-text {
+            font-size: 12px;
+        }
+
+        @media (max-width: 576px) {
+            .main-logo { height: 32px; }
+            .group-logo { height: 24px; }
+            .user-profile { padding: 4px 10px !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-top py-2 border-bottom bg-white">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center gap-3">
+                <img src="../assets/images/logo.jpg" alt="Toyo Seikan Group" class="group-logo" onerror="this.src=''">
+                <span class="text-muted">|</span>
+                <img src="../assets/images/toyo-seikan-group-logo.jpg" alt="Toyo Seikan Group" class="group-logo" onerror="this.src=''">
+            </div>
+            <div class="user-profile d-flex justify-content-end" id="userProfile">
+                <span class="profile-text"><i class="bi bi-person-circle me-1"></i> Guest User</span>
+            </div>
+        </div>
+    </header>
+
     <div id="navbar"></div>
 
-        <main class="container my-5">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active text-muted" aria-current="page">วิดีโอแนะนำ</li>
-                </ol>
-            </nav>
+    <main class="container my-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active text-muted" aria-current="page">วิดีโอแนะนำ</li>
+            </ol>
+        </nav>
 
-            <h3 class="text-center fw-bold mb-5 main-title">
-                <span class="border-bottom border-primary border-3 pb-2">วิดีโอแนะนำ</span>
-            </h3>
+        <h3 class="text-center fw-bold mb-5 main-title">
+            <span class="border-bottom border-primary border-3 pb-2">วิดีโอแนะนำ</span>
+        </h3>
 
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-8 col-lg-6">
-                    <div class="d-flex align-items-center justify-content-center gap-3">
-                        <span class="fw-bold text-secondary">Search</span>
-                        <div class="input-group shadow-sm search-center-box">
-                            <input type="text" class="form-control" placeholder="ค้นหาวิดีโอที่ต้องการ...">
-                            <button class="btn btn-primary px-4" type="button">
-                                <i class="bi bi-search text-white"></i>
-                            </button>
-                        </div>
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 col-lg-6">
+                <div class="d-flex align-items-center justify-content-center gap-3">
+                    <span class="fw-bold text-secondary">Search</span>
+                    <div class="input-group shadow-sm search-center-box">
+                        <input type="text" class="form-control" placeholder="ค้นหาวิดีโอที่ต้องการ...">
+                        <button class="btn btn-primary px-4" type="button">
+                            <i class="bi bi-search text-white"></i>
+                        </button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="row g-4" id="videoGrid"></div>
+        <div class="row g-4" id="videoGrid"></div>
 
-            <div class="d-flex justify-content-center mt-5">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination pagination-sm shadow-sm rounded">
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">หน้าถัดไป &gt;</a></li>
-                        <li class="page-item"><a class="page-link" href="#">หน้าสุดท้าย &gt;&gt;</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </main>
-    </div>
+        <div class="d-flex justify-content-center mt-5">
+            <nav aria-label="Page navigation">
+                <ul class="pagination pagination-sm shadow-sm rounded">
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">หน้าถัดไป &gt;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">หน้าสุดท้าย &gt;&gt;</a></li>
+                </ul>
+            </nav>
+        </div>
+    </main>
 
-     <!-- Report -->
     <div id="report"></div>
-    
-    <!-- Footer -->
     <div id="footer"></div>
-        <!-- nav,foot -->
-    <script type ="module" src="../scripts/core/layout.js"></script>
 
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        const thumbImg = "images/giftbox.jpg"; 
+        const thumbImg = "../assets/images/giftbox.jpg"; 
         const videoGrid = document.getElementById('videoGrid');
         
+        // ฟังก์ชันจัดการกรณีภาพจริงโหลดไม่ขึ้น ให้แสดงกล่อง Placeholder สวย ๆ แทนทันทีโดยไม่วนลูปกระพริบ
+        window.handleImageError = function(img) {
+            const parent = img.parentElement;
+            // นำแท็ก img ออกเพื่อตัดปัญหาวนลูปกระพริบ
+            img.remove(); 
+            // ใส่หน้าต่าง Placeholder เข้าไปแทนที่
+            parent.innerHTML = `
+                <div class="video-thumb-fallback">
+                    <i class="bi bi-play-btn-fill"></i>
+                    <span>Toyo Seikan Video</span>
+                </div>
+            `;
+        };
+
+        // วนลูปสร้างการ์ดวิดีโอ 6 กล่อง
         for(let i = 1; i <= 6; i++) {
             const col = document.createElement('div');
             col.className = 'col-sm-6 col-md-4';
             col.innerHTML = `
-                <div class="card video-card border-0 shadow-sm rounded-3 overflow-hidden h-100">
-                    <div class="video-thumb position-relative overflow-hidden" style="cursor: pointer;">
-                        <img src="${thumbImg}" class="w-100" style="aspect-ratio: 16/9; object-fit: cover;" alt="Video Thumbnail" onerror="this.src='https://via.placeholder.com/400x225?text=Video+Thumbnail'">
-                        <div class="play-overlay position-absolute top-50 start-50 translate-middle">
-                            <i class="bi bi-play-circle-fill text-white display-4 shadow-sm"></i>
-                        </div>
+                <div class="card video-card border-0 shadow-sm rounded-3 overflow-hidden h-100" onclick="location.href='course.html'" style="cursor: pointer;">
+                    <div class="video-thumb">
+                        <img src="${thumbImg}" class="w-100 h-100" style="object-fit: cover;" alt="Video Thumbnail" onerror="handleImageError(this)">
                     </div>
                     <div class="p-3 border-top bg-white">
-                        <p class="mb-0 text-dark small fw-bold text-truncate">Video Name Title - ${i}</p>
+                        <p class="mb-0 text-dark small fw-bold text-truncate">วิดีโอแนะนำหลักสูตรพนักงานใหม่ - ชุดที่ ${i}</p>
                     </div>
                 </div>
             `;
