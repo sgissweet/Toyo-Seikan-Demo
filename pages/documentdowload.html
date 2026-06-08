@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เอกสารดาวน์โหลด - Toyo Seikan</title>
+     <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+      
+</head>
+<body>
+    <div class="content-wrapper" style="min-height: calc(100vh - 60px);">
+        <header class="container-fluid top-header bg-white border-bottom py-2">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div class="logo-wrapper d-flex align-items-center">
+                    <img src="../images/toyo.jpg" alt="Logo" class="main-logo">
+                    <img src="../images/toyogroup.jpg" class="group-logo border-start ms-2 ps-2 ms-sm-3 ps-sm-3">
+                </div>
+                <div class="user-profile d-flex align-items-center shadow-sm">
+                    <i class="bi bi-person-circle fs-4 me-2"></i>
+                    <div class="text-start">
+                        <div class="fw-light" style="font-size: 11px; opacity: 0.9;">Position</div>
+                        <div class="fw-bold">Username</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+            <!-- NAVBAR -->
+    <div id="navbar"></div>
+
+        <main class="container my-4">
+            <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-folder-symlink-fill text-primary me-2"></i>เอกสารดาวน์โหลด</h5>
+            <p class="mb-4 fw-bold text-secondary border-start border-primary border-4 ps-2">เอกสารล่าสุด</p>
+
+            <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle text-center custom-table mb-0">
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">ลำดับ</th>
+                                <th class="text-start ps-4">รายการ</th>
+                                <th style="width: 140px;">วันที่ประกาศ</th>
+                                <th style="width: 150px;">ดาวน์โหลด</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+       <!-- Report -->
+    <div id="report"></div>
+    
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/script.js"></script>
+    <!-- nav,foot -->
+    <script type ="module" src="../scripts/core/layout.js"></script>
+    <script>
+        // ข้อมูลรายการ
+        const rowData = [
+            { id: 1, date: '29/07/2565' },
+            { id: 2, date: '27/07/2565' },
+            { id: 3, date: '18/07/2565' },
+            { id: 4, date: '9/07/2565' },
+            { id: 5, date: '30/06/2565' },
+            { id: 6, date: '26/06/2565' }
+        ];
+        
+        // จัดการนำข้อมูลเข้าตารางโดยใช้ DOM Method ปลอดภัยและเสถียรกว่า document.write
+        const tableBody = document.getElementById('tableBody');
+        
+        rowData.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="fw-bold text-secondary">${item.id}</td>
+                <td class="text-start ps-4 text-wrap">The standard chunk of Lorem Ipsum used since the 1500s</td>
+                <td class="text-muted">${item.date}</td>
+                <td>
+                    <button class="btn btn-download btn-sm px-3 rounded-2">
+                        ดาวน์โหลด <i class="bi bi-file-earmark-arrow-down-fill ms-1"></i>
+                    </button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>
