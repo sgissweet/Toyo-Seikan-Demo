@@ -1,0 +1,16 @@
+.custom-select-primary {
+    background-color: #E3F2FF;
+    color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='var(--bs-primary)' viewBox='0 0 16 16'%3e%3cpath d='M1.5 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+}
+
+/* สีตอน focus */
+.custom-select-primary:focus {
+    color: black;
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), .25);
+}
+
