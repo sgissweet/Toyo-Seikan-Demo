@@ -1,6 +1,10 @@
 
 /* COURSE */
-
+.course-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
 .course-card {
     
