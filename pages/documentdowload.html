@@ -3,127 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เอกสารดาวน์โหลด - Toyo Seikan</title>
+    <title>Toyo Seikan (Thailand) - Downloads</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
+        body { 
+            font-family: 'Sarabun', sans-serif; 
             background-color: #f8f9fa;
-            color: #333;
         }
-        .main-logo { height: 40px; }
-        .group-logo { height: 30px; }
+        .bg-toyo-blue { background-color: #005691; }
+        .text-toyo-blue { color: #005691; }
+        .bg-table-header { background-color: #2D89CE; }
+        .download-btn { background-color: #2D89CE; transition: 0.3s; }
+        .download-btn:hover { background-color: #1a6ba3; }
 
-        /* สไตล์ตาราง */
-        .custom-table th {
-            background-color: #f1f3f5;
-            color: #495057;
-            font-weight: 600;
+        /* สไตล์สำหรับจำลอง Element ของโค้ดที่ 1 */
+        .group-logo { 
+            height: 30px; 
+            max-width: 100%;
+            object-fit: contain;
         }
-        .btn-download {
-            background-color: #0d6efd;
-            color: white;
-            border: none;
-            transition: all 0.2s ease;
+        .profile-text {
+            font-size: 12px; 
+            line-height: 1.2;
         }
-        .btn-download:hover {
-            background-color: #0b5ed7;
-            color: white;
-        }
-
-        /* ส่วนท้ายเว็บ */
-        .footer-bar {
-            background-color: #ffffff;
-            border-top: 1px solid #dee2e6;
-            padding: 15px 0;
-        }
-        .report-balloon {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #dc3545;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-            font-size: 14px;
-            cursor: pointer;
-            z-index: 1000;
-            border: none;
-            transition: transform 0.2s;
-        }
-        .report-balloon:hover {
-            transform: scale(1.05);
+        @media (max-width: 576px) {
+            .group-logo { height: 24px; }
         }
     </style>
+</head>
+<body class="bg-gray-50">
 
-<!-- NAVBAR -->
-    <div id="navbar"></div>
+      <div id="navbar"></div>
 
-        <main class="container my-4">
-            <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-folder-symlink-fill text-primary me-2"></i>เอกสารดาวน์โหลด</h5>
-            <p class="mb-4 fw-bold text-secondary border-start border-primary border-4 ps-2">เอกสารล่าสุด</p>
-
-            <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
-                <div class="table-responsive">
-                    <table class="table table-bordered align-middle text-center custom-table mb-0">
-                        <thead>
-                            <tr>
-                                <th style="width: 80px;">ลำดับ</th>
-                                <th class="text-start ps-4">รายการ</th>
-                                <th style="width: 140px;">วันที่ประกาศ</th>
-                                <th style="width: 150px;">ดาวน์โหลด</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody">
-                            </tbody>
-                    </table>
+    <div class="bootstrap-wrapper">
+        <header class="header-top py-2 border-bottom bg-white">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="logo d-flex align-items-center gap-3">
+                    <img src="../assets/images/logo.jpg" alt="Toyo Seikan Group" class="group-logo" onerror="this.src=''">
+                    <span class="text-muted">|</span>
+                    <img src="../assets/images/toyo-seikan-group-logo.jpg" alt="Toyo Seikan Group" class="group-logo" onerror="this.src=''">
+                </div>
+                <div class="user-profile d-flex justify-content-end" id="userProfile">
+                    <span class="profile-text text-dark"><i class="bi bi-person-circle me-1"></i> Guest User</span>
                 </div>
             </div>
-        </main>
+        </header>
+
     </div>
-    
- <!-- Report -->
+
+    <main class="container mx-auto px-4 py-8 mt-4">
+        <h1 class="text-xl font-bold text-gray-800 mb-6">เอกสารดาวน์โหลด</h1>
+        
+        <div class="bg-white rounded-lg shadow-sm border p-6">
+            <h2 class="text-lg font-bold mb-6">เอกสารล่าสุด</h2>
+            
+            <div class="overflow-hidden rounded-t-lg">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-table-header text-white text-sm">
+                            <th class="py-3 px-4 border-r border-blue-400 font-normal w-16 text-center">ลำดับ</th>
+                            <th class="py-3 px-4 border-r border-blue-400 font-normal">รายการ</th>
+                            <th class="py-3 px-4 border-r border-blue-400 font-normal w-40 text-center">วันที่ประกาศ</th>
+                            <th class="py-3 px-4 font-normal w-40 text-center">ดาวน์โหลด</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-gray-600">
+                        <script>
+                            const rows = [
+                                { id: 1, date: '29/07/2565' },
+                                { id: 2, date: '27/07/2565' },
+                                { id: 3, date: '18/07/2565' },
+                                { id: 4, date: '09/07/2565' },
+                                { id: 5, date: '30/06/2565' },
+                                { id: 6, date: '26/06/2565' }
+                            ];
+                            document.write(rows.map(row => `
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="py-3 px-4 text-center border-r">${row.id}</td>
+                                    <td class="py-3 px-4 border-r">The standard chunk of Lorem Ipsum used since the 1500s</td>
+                                    <td class="py-3 px-4 text-center border-r">${row.date}</td>
+                                    <td class="py-2 px-4 text-center">
+                                        <button class="download-btn text-white px-4 py-1.5 rounded text-xs flex items-center justify-center mx-auto w-full max-w-[100px]">
+                                            ดาวน์โหลด <i class="fas fa-file-download ml-2"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            `).join(''));
+                        </script>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
     <div id="report"></div>
     
-    <!-- Footer -->
     <div id="footer"></div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // ข้อมูลรายการ
-        const rowData = [
-            { id: 1, date: '29/07/2565' },
-            { id: 2, date: '27/07/2565' },
-            { id: 3, date: '18/07/2565' },
-            { id: 4, date: '9/07/2565' },
-            { id: 5, date: '30/06/2565' },
-            { id: 6, date: '26/06/2565' }
-        ];
-        
-        // จัดการนำข้อมูลเข้าตารางโดยใช้ DOM Method ปลอดภัยและเสถียรกว่า document.write
-        const tableBody = document.getElementById('tableBody');
-        
-        rowData.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td class="fw-bold text-secondary">${item.id}</td>
-                <td class="text-start ps-4 text-wrap">The standard chunk of Lorem Ipsum used since the 1500s</td>
-                <td class="text-muted">${item.date}</td>
-                <td>
-                    <button class="btn btn-download btn-sm px-3 rounded-2">
-                        ดาวน์โหลด <i class="bi bi-file-earmark-arrow-down-fill ms-1"></i>
-                    </button>
-                </td>
-            `;
-            tableBody.appendChild(row);
-        });
-    </script>
 
-     <script src="../scripts/data.js"></script>
+    <script src="../scripts/data.js"></script>
     <script src="../scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
