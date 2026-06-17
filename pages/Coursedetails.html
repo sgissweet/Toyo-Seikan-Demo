@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รายละเอียดหลักสูตร - Toyo Seikan</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/footerIndex.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,118 +25,12 @@
             --border-color: #F9F9F9;
         }
 
-        html, body {
-            height: 100%;
-        }
         body {
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-            padding: 0;
             background-color: #fff;
             color: #333;
             font-family: 'Sarabun', sans-serif;
         }
 
-        .main-wrapper {
-            flex: 1 0 auto;
-        }
-
-        /* --- Header & Navigation --- */
-        header { 
-            padding: 10px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        .logo-group { display: flex; align-items: center; gap: 15px; }
-        .logo-group img { height: 40px; }
-        
-        .user-profile {
-            background: var(--primary-blue);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-        .user-profile:active { background: var(--accent-blue); } 
-
-        .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: #eee; overflow: hidden; }
-        .user-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .user-info { font-size: 11px; line-height: 1.2; }
-
-        nav { 
-            background: #fff; 
-            border-top: 1px solid var(--primary-blue); 
-            border-bottom: 5px solid var(--primary-blue); 
-            padding: 0 5%; 
-            display: flex; 
-            align-items: center; 
-            min-height: 50px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center; 
-            gap: 25px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li a {
-            display: flex;
-            align-items: center; 
-            text-decoration: none;
-            color: #333;
-            font-size: 14px;
-            height: 50px;
-            transition: color 0.1s;
-        }
-
-        .nav-links li a:active {
-            background-color: transparent; 
-            color: var(--accent-blue);     
-        }
-        
-        .nav-links li a:active img {
-            filter: brightness(0) saturate(100%) invert(53%) sepia(68%) saturate(2253%) hue-rotate(176deg) brightness(94%) contrast(92%);
-        }
-
-        .nav-icon-home {
-            width: 20px;
-            height: auto;
-            display: block;
-            margin-right: 5px;
-        }
-
-        .search-container { 
-            margin-left: auto; 
-            position: relative; 
-            width: 220px;  
-            display: flex;
-            align-items: center;
-        }
-        .search-container input {
-            width: 100%;
-            height: 32px;
-            padding: 0 35px 0 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 13px;
-            outline: none;
-        }
-        .search-icon {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .container { width: 92%; max-width: 1200px; margin: 25px auto; }
         .top-info { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; }
         .course-title { font-size: 22px; font-weight: 600; }
         .breadcrumb { font-size: 13px; font-weight: 600; }
@@ -273,129 +180,266 @@
         .btn-blue-sm { background: #4a81c8; color: #fff; border: none; padding: 6px 18px; border-radius: 6px; font-size: 14px; cursor: pointer; }
         .locked-icon { opacity: 0.3; filter: grayscale(1); }
 
-        footer {
-            flex-shrink: 0;
-            background: var(--primary-blue);
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 13px;
-            width: 100%;
-        }
-
         @media (max-width: 992px) {
             .main-grid { flex-direction: column; }
             .sidebar { width: 100%; }
-            nav { height: auto; padding: 10px 5%; flex-direction: column; }
-            .search-container { width: 100%; margin-top: 10px; }
         }
     </style>
 </head>
-<body>
 
-<div class="main-wrapper">
-    <header>
-        <div class="logo-group">
-            <img src="../images/toyo-logo.png" alt="Toyo Seikan">
-            <div style="width:1px; height:30px; background:#ccc;"></div>
-            <img src="../images/group-logo.png" alt="Group Logo">
-        </div>
-        <div class="user-profile">
-            <div class="user-avatar">
-                <img src="../images/avatar.png" alt="Avatar">
+<body data-page="course-content">
+
+    <!-- Navbar Component -->
+    <div id="navbar"></div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="py-5">
+            <div class="container">
+                <div class="top-info">
+                    <h1 class="course-title">ชื่อหลักสูตร</h1>
+                    <div class="breadcrumb">หน้าแรก > หลักสูตร > บทที่ 1</div>
+                </div>
+
+                <div class="main-grid">
+                    <aside class="sidebar">
+                        <div class="preview-card">
+                            <img src="../images/course-cover-1.png" alt="Cover">
+                            <div class="card-content">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <div style="font-weight:600; font-size:18px;">ชื่อหลักสูตร</div>
+                                    <div style="background: #6DBE70; color: white; padding: 2px 12px; border-radius: 6px; font-size: 13px;">Completed</div>
+                                </div>
+                                
+                                <div class="progress-section">
+                                    <div class="bar-bg" style="height: 8px;"><div class="bar-fill" style="width: 100%; background: #6DBE70;"></div></div>
+                                    <div class="progress-text" style="font-size: 16px; margin-top: 5px;">100 % เสร็จสมบูรณ์</div>
+                                </div>
+                                <div style="font-size:14px; color:#666; line-height:1.8;">
+                                    เจ้าของหลักสูตร : คุณทวี เสริมศิลป์ <br>
+                                    ผู้อนุมัติหลักสูตร : คุณวิรัช กังเตชะการ
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="meta-container">
+                            <div class="meta-row">
+                                <div class="meta-item">
+                                    <span>ระยะเวลา</span>
+                                    <img src="../images/clock-icon.png" class="icon-img" alt="clock">
+                                    <strong>2 ชั่วโมง</strong>
+                                </div>
+                                <div class="meta-item">
+                                    <span>จำนวนบทเรียน</span>
+                                    <img src="../images/lesson-icon.png" class="icon-img">
+                                    <strong>4 บทเรียน</strong>
+                                </div>
+                            </div>
+                            <div class="meta-row">
+                                <div class="meta-item">
+                                    <span>สถานะ Certificate</span>
+                                    <img src="../images/certificate-icon.png" class="icon-img">
+                                    <div style="font-size:16px; color:#333;">ยังไม่ผ่านเงื่อนไข</div>
+                                </div>
+                                <div class="meta-item">
+                                <span>แบบประเมินหลักสูตร</span>
+                                <img src="../images/evaluation-icon.png" class="icon-img">
+                                <button class="btn-action" onclick="location.href='questionnaire.html'">ทำแบบประเมิน</button>
+                            </div>  
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div class="detail-content">
+                        <div class="period-banner">
+                            Period 170 Day (14 / Jul / 2022 - 31 Dec / 2026)
+                        </div>
+
+                        <div class="tab-group" id="tabGroup">
+                            <div class="tab-item active" onclick="changeContent('detail', this)">รายละเอียดหลักสูตร</div>
+                            <div class="tab-item" onclick="changeContent('list', this)">รายการหลักสูตร</div>
+                        </div>
+
+                        <div class="description-box" id="descriptionBox">
+                            <p><strong>Course Summary:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo imperdiet ipsum lacus, tempus cras ultricies commodo. Euismod nibh tortor platea urna. Aliquet orci, pharetra, nulla risus libero. Commodo, ornare quis volutpat elit semper dignissim maecenas. Habitasse sagittis vel penatibus aliquet dolor mauris eu nibh. Viverra adipiscing tristique consequat ullamcorper elit odio tristique id felis. Faucibus netus lorem fusce habitant tellus at.</p>
+                            <p style="margin-top:20px;"><strong>Target Learner:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p style="margin-top:20px;"><strong>Media Type:</strong> VDO Clips + PDF File</p>
+                            <p style="margin-top:20px;"><strong>Learning Topics:</strong></p>
+                            <ul style="padding-left:25px; margin-top:10px; list-style-type: none;">
+                                <li>Chapter 1 : Introduction</li>
+                                <li>Chapter 2 : Sign in</li>
+                                <li>Chapter 3 : ...</li>
+                                <li>Chapter 4 : ...</li>
+                                <li>Chapter 5 : ...</li>
+                                <li>Chapter 6 : ...</li>
+                                <li>Chapter 7 : ...</li>
+                            </ul>
+                            <p style="margin-top:20px;"><strong>Quiz:</strong> Yes (Post test)</p>
+                            <p style="margin-top:10px;"><strong>Estimated Total Course Duration:</strong> 7 Chapters / 30 Minutes</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="user-info">
-                <div style="opacity: 0.8;">Position</div>
-                <div style="font-weight: 600;">Username</div>
-            </div>
-        </div>
-    </header>
+        </section>
+    </main>
 
-    <nav>
-        <ul class="nav-links">
-            <li>
-                <a href="#">
-                    <img src="../images/home-icon.png" class="nav-icon-home" alt="home">
-                </a>
-            </li>
-            <li><a href="#">หลักสูตร</a></li>
-            <li><a href="#">ข่าวประชาสัมพันธ์</a></li>
-            <li><a href="#">คำถามที่พบบ่อย</a></li>
-            <li><a href="#">วิธีการใช้งาน</a></li>
-            <li><a href="#">ติดต่อเรา</a></li>
-        </ul>
-        <div class="search-container">
-            <input type="text" placeholder="พิมพ์คำค้นหา...">
-            <img src="../images/search-icon.png" class="search-icon" style="width: 23px; height: 23px;">
-        </div>
-    </nav>
+    <!-- Footer Component -->
+    <div id="footer"></div>
 
-    <div class="container">
-        <div class="top-info">
-            <h1 class="course-title">ชื่อหลักสูตร</h1>
-            <div class="breadcrumb">หน้าแรก > หลักสูตร > บทที่ 1</div>
-        </div>
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script type="module" src="../scripts/core/layout.js"></script>
 
-        <div class="main-grid">
-            <aside class="sidebar">
-                <div class="preview-card">
-                    <img src="../images/course-cover-1.png" alt="Cover">
-                    <div class="card-content">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                            <div style="font-weight:600; font-size:18px;">ชื่อหลักสูตร</div>
-                            <div style="background: #6DBE70; color: white; padding: 2px 12px; border-radius: 6px; font-size: 13px;">Completed</div>
+    <!-- Bootstrap JS & Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    <script>
+    function changeContent(type, element) {
+            const tabs = document.querySelectorAll('.tab-item');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            element.classList.add('active');
+
+            const box = document.getElementById('descriptionBox');
+            if (type === 'list') {
+                box.style.border = 'none';
+                box.style.padding = '0';
+                box.innerHTML = `
+                    <div class="lesson-container" style="background-color: #CEE3F4; border-radius: 15px; padding: 20px;">
+                        <div class="chapter-box" style="box-shadow: none; background: transparent;">
+                            <div class="chapter-header" style="background: transparent; color: #1d4477; padding: 12px 0;">
+                                <span class="chapter-title">บทที่ 1 ชื่อบทเรียน</span>
+                                <button class="btn-doc-dl" style="background-color: #23527C; color: white; border: none; padding: 5px 12px; border-radius: 5px;" onclick="window.open('path/to/your/file.pdf', '_blank')">
+                                    <img src="../images/folder-icon.png" style="width:25px; filter: invert(20%) sepia(40%) saturate(1500%) hue-rotate(185deg);"> 
+                                    เอกสารประกอบการเรียน
+                                </button>
+                            </div>
+                            <div class="chapter-content">
+                                <div class="lesson-row">
+                                    <div class="lesson-label"><div class="status-circle status-checked">✓</div> ทำข้อสอบก่อนเรียน</div>
+                                    <div class="lesson-meta"><span>คะแนนที่ได้</span> <div class="score-val">8/15</div></div>
+                                </div>
+                                <div class="lesson-row">
+                                    <div class="lesson-label"><div class="status-circle status-half"></div> ดูวิดีโอ</div>
+                                    <div class="lesson-meta">
+                                        <span style="color:#666; font-size:14px; display: flex; align-items: center; gap: 3px;">
+                                            <img src="../images/clock-icon.png" style="height: 20px; width: auto;" alt="clock"> 
+                                            30 นาที
+                                       </span> 
+                                        <button class="btn-blue-sm" onclick="location.href='studyvideo.html'">ดูวิดีโอ</button>
+                                    </div>
+                                </div>
+                                <div class="lesson-row">
+                                    <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบหลังเรียน</div>
+                                    <div class="lesson-meta"> <button class="btn-blue-sm" onclick="location.href='test.html'">ทำข้อสอบ</button></div>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="progress-section">
-                            <div class="bar-bg" style="height: 8px;"><div class="bar-fill" style="width: 100%; background: #6DBE70;"></div></div>
-                            <div class="progress-text" style="font-size: 16px; margin-top: 5px;">100 % เสร็จสมบูรณ์</div>
+
+                        <div class="chapter-box" style="margin-bottom: 15px;">
+                            <div class="chapter-header">
+                                <span class="chapter-title">บทที่ 2 ชื่อบทเรียน</span>
+                                <div style="background:white; color:#1F7BCC; padding:4px 15px; border-radius:5px; font-size:12px; font-weight:600;">ไม่มีเอกสารประกอบ</div>
+                            </div>
+                            <div class="chapter-content" >
+                                <div class="lesson-row" style="opacity:0.6;">
+                                    <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบก่อนเรียน</div>
+                                    <div class="lesson-meta">
+                                        <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
+                                    </div>
+                                </div>
+                                <div class="lesson-row" style="opacity:0.6;">
+                                    <div class="lesson-label"><div class="status-circle"></div> วิดีโอบทที่ 2</div>
+                                    <div class="lesson-meta">
+                                        <span style="color:#666; font-size:14px;display: flex; align-items: center; gap: 3px;">
+                                            <img src="../images/clock-icon.png" style="height: 20px; width: auto;" alt="clock"> 
+                                            30 นาที
+                                        </span> 
+                                        <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
+                                    </div>
+                                </div>
+                                <div class="lesson-row" style="opacity:0.6;">
+                                    <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบหลังเรียน</div>
+                                    <div class="lesson-meta">
+                                        <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div style="font-size:14px; color:#666; line-height:1.8;">
-                            เจ้าของหลักสูตร : คุณทวี เสริมศิลป์ <br>
-                            ผู้อนุมัติหลักสูตร : คุณวิรัช กังเตชะการ
+
+                        <div class="chapter-box" style="margin-bottom: 15px;">
+                            <div class="chapter-header">
+                                <span class="chapter-title">บทที่ 3 ชื่อบทเรียน</span>
+                                <button class="btn-doc-dl" onclick="window.open('path/to/your/file.pdf', '_blank')">
+                                    <img src="../images/play-icon.png" style="width:25px; filter: invert(20%) sepia(40%) saturate(1500%) hue-rotate(185deg);"> 
+                                    เอกสารประกอบการเรียน
+                                </button>
+                            </div>
+                            <div class="chapter-content" >
+                                <div class="lesson-row" style="opacity:0.6;">
+                                    <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบก่อนเรียน</div>
+                                    <div class="lesson-meta">
+                                        <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
+                                    </div>
+                                </div>
+                                <div class="lesson-row" style="opacity:0.6;">
+                                    <div class="lesson-label"><div class="status-circle"></div> วิดีโอบทที่ 3</div>
+                                    <div class="lesson-meta" style="display: flex; align-items: center; gap: 15px;">
+                                        <span style="color:#666; font-size:14px; display: flex; align-items: center; gap: 3px;">
+                                            <img src="../images/clock-icon.png" style="height: 20px; width: auto;" alt="clock"> 
+                                            30 นาที
+                                        </span> 
+                                        <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
+                                    </div>
+                                </div>
+                                <div class="lesson-row" style="opacity:0.6;">
+                                    <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบหลังเรียน</div>
+                                    <div class="lesson-meta">
+                                        <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chapter-box" style="margin-bottom: 15px;">
+                            <div class="chapter-header">
+                                <span class="chapter-title">บทที่ 4 ชื่อบทเรียน</span>
+                                <button class="btn-doc-dl" onclick="window.open('path/to/your/file.pdf', '_blank')">
+                                    <img src="../images/play-icon.png" style="width:25px; filter: invert(20%) sepia(40%) saturate(1500%) hue-rotate(185deg);"> 
+                                    เอกสารประกอบการเรียน
+                                </button>
+                            </div>
+                            <div class="chapter-content" >
+                                <div class="lesson-row" style="opacity:0.6;">
+                                    <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบก่อนเรียน</div>
+                                    <div class="lesson-meta">
+                                        <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
+                                    </div>
+                                </div>
+                                <div class="lesson-row" style="opacity:0.6;">
+                                    <div class="lesson-label"><div class="status-circle"></div> วิดีโอบทที่ 4</div>
+                                    <div class="lesson-meta">
+                                        <span style="color:#666; font-size:14px; display: flex; align-items: center; gap: 3px;">
+                                            <img src="../images/clock-icon.png" style="height: 20px; width: auto;" alt="clock"> 
+                                            30 นาที
+                                        </span> 
+                                        <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
+                                    </div>
+                                </div>
+                                <div class="lesson-row" style="opacity:0.6;">
+                                    <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบหลังเรียน</div>
+                                    <div class="lesson-meta">
+                                        <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="meta-container">
-                    <div class="meta-row">
-                        <div class="meta-item">
-                            <span>ระยะเวลา</span>
-                            <img src="../images/clock-icon.png" class="icon-img" alt="clock">
-                            <strong>2 ชั่วโมง</strong>
-                        </div>
-                        <div class="meta-item">
-                            <span>จำนวนบทเรียน</span>
-                            <img src="../images/lesson-icon.png" class="icon-img">
-                            <strong>4 บทเรียน</strong>
-                        </div>
-                    </div>
-                    <div class="meta-row">
-                        <div class="meta-item">
-                            <span>สถานะ Certificate</span>
-                            <img src="../images/certificate-icon.png" class="icon-img">
-                            <div style="font-size:16px; color:#333;">ยังไม่ผ่านเงื่อนไข</div>
-                        </div>
-                        <div class="meta-item">
-                            <span>แบบประเมินหลักสูตร</span>
-                            <img src="../images/evaluation-icon.png" class="icon-img">
-                            <button class="btn-action">ทำแบบประเมิน</button>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
-            <main class="detail-content">
-                <div class="period-banner">
-                    Period 170 Day (14 / Jul / 2022 - 31 Dec / 2026)
-                </div>
-
-                <div class="tab-group" id="tabGroup">
-                    <div class="tab-item active" onclick="changeContent('detail', this)">รายละเอียดหลักสูตร</div>
-                    <div class="tab-item" onclick="changeContent('list', this)">รายการหลักสูตร</div>
-                </div>
-
-                <div class="description-box" id="descriptionBox">
+                `;
+            } else {
+                box.style.border = '1.5px solid #d8e6f3';
+                box.style.padding = '30px';
+                box.innerHTML = `
                     <p><strong>Course Summary:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo imperdiet ipsum lacus, tempus cras ultricies commodo. Euismod nibh tortor platea urna. Aliquet orci, pharetra, nulla risus libero. Commodo, ornare quis volutpat elit semper dignissim maecenas. Habitasse sagittis vel penatibus aliquet dolor mauris eu nibh. Viverra adipiscing tristique consequat ullamcorper elit odio tristique id felis. Faucibus netus lorem fusce habitant tellus at.</p>
                     <p style="margin-top:20px;"><strong>Target Learner:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <p style="margin-top:20px;"><strong>Media Type:</strong> VDO Clips + PDF File</p>
@@ -411,181 +455,10 @@
                     </ul>
                     <p style="margin-top:20px;"><strong>Quiz:</strong> Yes (Post test)</p>
                     <p style="margin-top:10px;"><strong>Estimated Total Course Duration:</strong> 7 Chapters / 30 Minutes</p>
-                </div>
-            </main>
-        </div>
-    </div>
-</div>
-
-<footer>
-    สงวนลิขสิทธิ์ © 2021 ISUZU Motors (Thailand) Co., Ltd.
-</footer>
-
-<script>
-    function changeContent(type, element) {
-        const tabs = document.querySelectorAll('.tab-item');
-        tabs.forEach(tab => tab.classList.remove('active'));
-        element.classList.add('active');
-
-        const box = document.getElementById('descriptionBox');
-        if (type === 'list') {
-            box.style.border = 'none';
-            box.style.padding = '0';
-            box.innerHTML = `
-                 <div class="lesson-container" style="background-color: #CEE3F4; border-radius: 15px; padding: 20px;">
-                    <div class="chapter-box" style="box-shadow: none; background: transparent;">
-                        <div class="chapter-header" style="background: transparent; color: #1d4477; padding: 12px 0;">
-                            <span class="chapter-title">บทที่ 1 ชื่อบทเรียน</span>
-                            <button class="btn-doc-dl" style="background-color: #23527C; color: white; border: none; padding: 5px 12px; border-radius: 5px;" onclick="window.open('path/to/your/file.pdf', '_blank')">
-                                <img src="../images/folder-icon.png" style="width:25px; filter: invert(20%) sepia(40%) saturate(1500%) hue-rotate(185deg);"> 
-                                เอกสารประกอบการเรียน
-                            </button>
-                        </div>
-                        <div class="chapter-content">
-                            <div class="lesson-row">
-                                <div class="lesson-label"><div class="status-circle status-checked">✓</div> ทำข้อสอบก่อนเรียน</div>
-                                <div class="lesson-meta"><span>คะแนนที่ได้</span> <div class="score-val">8/15</div></div>
-                            </div>
-                            <div class="lesson-row">
-                                <div class="lesson-label"><div class="status-circle status-half"></div> ดูวิดีโอ</div>
-                                <div class="lesson-meta">
-                                    <span style="color:#666; font-size:14px; display: flex; align-items: center; gap: 3px;">
-                                        <img src="../images/clock-icon.png" style="height: 20px; width: auto;" alt="clock"> 
-                                        30 นาที
-                                    </span> 
-                                    <button class="btn-blue-sm" onclick="location.href='video_page.html'">ดูวิดีโอ</button>
-                                </div>
-                            </div>
-                            <div class="lesson-row">
-                                <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบหลังเรียน</div>
-                                <div class="lesson-meta"> <button class="btn-blue-sm" onclick="location.href='quiz_page.html'">ทำข้อสอบ</button></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chapter-box" style="margin-bottom: 15px;">
-                        <div class="chapter-header">
-                            <span class="chapter-title">บทที่ 2 ชื่อบทเรียน</span>
-                            <div style="background:white; color:#1F7BCC; padding:4px 15px; border-radius:5px; font-size:12px; font-weight:600;">ไม่มีเอกสารประกอบ</div>
-                        </div>
-                        <div class="chapter-content" >
-                            <div class="lesson-row" style="opacity:0.6;">
-                                <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบก่อนเรียน</div>
-                                <div class="lesson-meta">
-                                    <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
-                                </div>
-                            </div>
-                            <div class="lesson-row" style="opacity:0.6;">
-                                <div class="lesson-label"><div class="status-circle"></div> วิดีโอบทที่ 2</div>
-                                <div class="lesson-meta">
-                                    <span style="color:#666; font-size:14px;display: flex; align-items: center; gap: 3px;">
-                                        <img src="../images/clock-icon.png" style="height: 20px; width: auto;" alt="clock"> 
-                                        30 นาที
-                                    </span> 
-                                    <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
-                                </div>
-                            </div>
-                            <div class="lesson-row" style="opacity:0.6;">
-                                <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบหลังเรียน</div>
-                                <div class="lesson-meta">
-                                    <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chapter-box" style="margin-bottom: 15px;">
-                        <div class="chapter-header">
-                            <span class="chapter-title">บทที่ 3 ชื่อบทเรียน</span>
-                            <button class="btn-doc-dl" onclick="window.open('path/to/your/file.pdf', '_blank')">
-                                <img src="../images/play-icon.png" style="width:25px; filter: invert(20%) sepia(40%) saturate(1500%) hue-rotate(185deg);"> 
-                                เอกสารประกอบการเรียน
-                            </button>
-                        </div>
-                        <div class="chapter-content" >
-                            <div class="lesson-row" style="opacity:0.6;">
-                                <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบก่อนเรียน</div>
-                                <div class="lesson-meta">
-                                    <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
-                                </div>
-                            </div>
-                            <div class="lesson-row" style="opacity:0.6;">
-                                <div class="lesson-label"><div class="status-circle"></div> วิดีโอบทที่ 3</div>
-                                <div class="lesson-meta" style="display: flex; align-items: center; gap: 15px;">
-                                    <span style="color:#666; font-size:14px; display: flex; align-items: center; gap: 3px;">
-                                        <img src="../images/clock-icon.png" style="height: 20px; width: auto;" alt="clock"> 
-                                        30 นาที
-                                    </span> 
-                                    <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
-                                </div>
-                            </div>
-                            <div class="lesson-row" style="opacity:0.6;">
-                                <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบหลังเรียน</div>
-                                <div class="lesson-meta">
-                                    <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chapter-box" style="margin-bottom: 15px;">
-                        <div class="chapter-header">
-                            <span class="chapter-title">บทที่ 4 ชื่อบทเรียน</span>
-                            <button class="btn-doc-dl" onclick="window.open('path/to/your/file.pdf', '_blank')">
-                                <img src="../images/play-icon.png" style="width:25px; filter: invert(20%) sepia(40%) saturate(1500%) hue-rotate(185deg);"> 
-                                เอกสารประกอบการเรียน
-                            </button>
-                        </div>
-                        <div class="chapter-content" >
-                            <div class="lesson-row" style="opacity:0.6;">
-                                <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบก่อนเรียน</div>
-                                <div class="lesson-meta">
-                                    <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
-                                </div>
-                            </div>
-                            <div class="lesson-row" style="opacity:0.6;">
-                                <div class="lesson-label"><div class="status-circle"></div> วิดีโอบทที่ 4</div>
-                                <div class="lesson-meta">
-                                    <span style="color:#666; font-size:14px; display: flex; align-items: center; gap: 3px;">
-                                        <img src="../images/clock-icon.png" style="height: 20px; width: auto;" alt="clock"> 
-                                        30 นาที
-                                    </span> 
-                                    <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
-                                </div>
-                            </div>
-                            <div class="lesson-row" style="opacity:0.6;">
-                                <div class="lesson-label"><div class="status-circle"></div> ทำข้อสอบหลังเรียน</div>
-                                <div class="lesson-meta">
-                                    <img src="../images/locked-icon.png" style="height: 25px; width: auto; opacity: 0.5;" alt="locked">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-       } else {
-            box.style.border = '1.5px solid #d8e6f3';
-            box.style.padding = '30px';
-            box.innerHTML = `
-                <p><strong>Course Summary:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo imperdiet ipsum lacus, tempus cras ultricies commodo. Euismod nibh tortor platea urna. Aliquet orci, pharetra, nulla risus libero. Commodo, ornare quis volutpat elit semper dignissim maecenas. Habitasse sagittis vel penatibus aliquet dolor mauris eu nibh. Viverra adipiscing tristique consequat ullamcorper elit odio tristique id felis. Faucibus netus lorem fusce habitant tellus at.</p>
-                <p style="margin-top:20px;"><strong>Target Learner:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p style="margin-top:20px;"><strong>Media Type:</strong> VDO Clips + PDF File</p>
-                <p style="margin-top:20px;"><strong>Learning Topics:</strong></p>
-                <ul style="padding-left:25px; margin-top:10px; list-style-type: none;">
-                    <li>Chapter 1 : Introduction</li>
-                    <li>Chapter 2 : Sign in</li>
-                    <li>Chapter 3 : ...</li>
-                    <li>Chapter 4 : ...</li>
-                    <li>Chapter 5 : ...</li>
-                    <li>Chapter 6 : ...</li>
-                    <li>Chapter 7 : ...</li>
-                </ul>
-                <p style="margin-top:20px;"><strong>Quiz:</strong> Yes (Post test)</p>
-                <p style="margin-top:10px;"><strong>Estimated Total Course Duration:</strong> 7 Chapters / 30 Minutes</p>
-            `;
+                `;
+            }
         }
-    }
-</script>
-
+    </script>
 </body>
+
 </html>

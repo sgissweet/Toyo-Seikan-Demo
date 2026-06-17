@@ -21,7 +21,7 @@ const DATA = {
     // เมนูนำทาง
     navItems: [
         { label: "หน้าแรก", href: "../pages/index.html", icon: "bi-house-door-fill", isHome: true },
-        { label: "หลักสูตร", href: "../pages/course.html" },
+        { label: "หลักสูตร", href: "../pages/course-online.html" },
         { label: "ข่าวประชาสัมพันธ์", href: "../pages/news.html" },
         { label: "คำถามที่พบบ่อย", href: "../pages/faq.html" },
         { label: "วิธีการใช้งาน", href: "../pages/how-to-use.html" },
